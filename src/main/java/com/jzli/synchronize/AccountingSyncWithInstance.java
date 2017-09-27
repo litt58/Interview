@@ -1,4 +1,4 @@
-package AsyncDemo.synchronize;
+package com.jzli.synchronize;
 
 /**
  * =======================================================
