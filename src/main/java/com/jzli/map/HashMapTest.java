@@ -39,5 +39,9 @@ public class HashMapTest {
             concurrentHashMap.put(new TestBean(i + "", i + ""), i + "");
         }
 
+        LinkedHashMap<TestBean, String> linkedHashMap = new LinkedHashMap<>();
+        for (int i = 1; i < 101; i++) {
+            linkedHashMap.put(new TestBean(i + "", i + ""), i + "");
+        }
     }
 }
