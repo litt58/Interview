@@ -1,0 +1,29 @@
+1.HashMap的实现
+在JDK1.6中，HashMap采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。
+但是当位于一个桶中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低,时间复杂度为O(n)。
+并且出现Hash碰撞时新加入的节点会从头结点加入，最早放入链表会存储在链表的最末端。
+
+JDK1.8中，HashMap采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换为红黑树，时间复杂度为 O(logn),这样大大减少了查找时间。
+具体可参考:https://blog.csdn.net/wushiwude/article/details/75331926
+红黑树相关可参考:https://blog.csdn.net/u011240877/article/details/53329023
+
+2.HashSet的实现
+使用HashMap的key部分操作实现HashSet
+HashSet确保元素唯一性的两个方法，hashCode()和equals()方法。
+
+3.Hashtable的实现
+HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口。
+主要的区别有：
+线程安全：Hashtable是线程安全的，使用同步关键字synchronized修饰各种方法，实现线程安全。HashMap不是线程安全的。
+效率:单线程情况下，HashMap效率比Hashtable高，因为Hashtable使用了synchronized关键字，每次调用方法都会加锁，降低了效率。多线程情况下，推荐使用ConcurrentHashMap。
+
+4.ConcurrentHashMap实现
+JDK6使用分段锁
+JDK8使用CPU的CAS指令，这个比较难理解，可以直接跟面试官说不太懂，只是上网看到的。
+CAS,compare and swap的缩写，中文翻译成比较并交换。
+
+
+5.线程安全的Map
+Hashtable,ConcurrentHashMap和Collections.synchronizedMap(map)
+Collections.synchronizedMap(map):把普通的Map作为参数传入，返回一个使用synchronized修饰各种方法的Map，简单粗暴的实现线程安全。
+

@@ -1,7 +1,7 @@
-package com.jzli.executor;
+package com.jzli.async.executor;
 
 
-import com.jzli.executor.task.SleepTask;
+import com.jzli.async.executor.task.SleepTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
