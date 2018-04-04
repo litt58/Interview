@@ -1,6 +1,8 @@
 package com.jzli.list;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -28,6 +30,13 @@ public class ListTest {
         for (int i = 1; i < 101; i++) {
             linkedList.add(i + "");
         }
+        //使用迭代器遍历时，不能修改集合本身
+        Iterator<String> iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            linkedList.remove(next);
+        }
+
         linkedList.get(6);
         linkedList.remove(7);
         linkedList.remove(10 + "");
@@ -37,9 +46,26 @@ public class ListTest {
             queue.add(i + "");
         }
         queue.remove();
-        queue.remove(10+"");
+        queue.remove(10 + "");
         queue.peek();
         queue.poll();
+
+        HashSet<String> hashSet = new HashSet<>();
+        for (int i = 0; i < 100; i++) {
+            hashSet.add(i + "");
+        }
+        //使用迭代器遍历时，不能修改集合本身
+        Iterator<String> it = hashSet.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            hashSet.remove(next);
+        }
+        //使用迭代器遍历时，不能修改集合本身
+        for (String s : hashSet) {
+            System.out.println(s);
+            hashSet.remove(s);
+        }
+        hashSet.remove(8 + "");
     }
 
 }

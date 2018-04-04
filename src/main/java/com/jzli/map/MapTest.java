@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Description ：
  * ========================================================
  */
-public class HashMapTest {
+public class MapTest {
     public static void main(String[] args) {
         HashMap<TestBean, String> map = new HashMap<>();
         for (int i = 1; i < 101; i++) {
@@ -22,6 +22,23 @@ public class HashMapTest {
         String s = map.get(new TestBean(1 + "", 1 + ""));
         Map<TestBean, String> synchronizedMap = Collections.synchronizedMap(map);
         s = synchronizedMap.get(new TestBean(1 + "", 1 + ""));
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        for (int i = 0; i < 100; i++) {
+            hashMap.put(i + "", i + "");
+        }
+
+        //使用迭代器遍历时，不能修改集合本身
+        Iterator<String> iterator = hashMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            iterator.remove();
+            String s1 = hashMap.get(next);
+            System.out.println(s1);
+            String remove = hashMap.remove(next);
+            System.out.println(remove);
+        }
+        System.out.println(hashMap);
 
         HashSet<TestBean> set = new HashSet<>();
         for (int i = 1; i < 101; i++) {
@@ -43,5 +60,7 @@ public class HashMapTest {
         for (int i = 1; i < 101; i++) {
             linkedHashMap.put(new TestBean(i + "", i + ""), i + "");
         }
+
+
     }
 }

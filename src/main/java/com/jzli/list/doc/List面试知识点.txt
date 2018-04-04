@@ -4,3 +4,5 @@ ArrayList插入或删除一个对象时，需要移动数组的元素，频繁�
 2.LinkedList:双向链表实现的List，插入或删除一个对象时,因为链表的特性只需要改变前后对象的引用即可，效率高。
 
 3.ConcurrentLinkedQueue是线程安全的List，使用单向链表实现，使用Unsafe的CAS操作保证线程安全。
+
+4.使用迭代器遍历时，不能修改集合本身,list,map,set都是如此。
