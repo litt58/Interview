@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
  * @Date ：2018/4/4
  * @Author ：李金钊
  * @Version ：0.0.1
- * @Description ：CGLIB动态代理:CGLIB通过继承的方式进行代理，无论目标对象有没有实现接口都可以代理，但是无法处理final的情况。
+ * @Description ：CGLIB动态代理:CGLIB通过继承的方式进行代理，无论目标对象有没有实现接口都可以代理，但是无法处理final方法的情况，因为CGLib原理是动态生成被代理类的子类。
  * ========================================================
  */
 public class CGLIBProxy implements MethodInterceptor {
