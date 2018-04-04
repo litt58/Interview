@@ -19,7 +19,7 @@ HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口。
 
 4.ConcurrentHashMap实现
 JDK6使用分段锁
-JDK8使用CPU的CAS指令，这个比较难理解，可以直接跟面试官说不太懂，只是上网看到的。
+JDK8使用UnSafe类中的CAS操作，这个比较难理解，可以直接跟面试官说不太懂，只是上网看到的。
 CAS,compare and swap的缩写，中文翻译成比较并交换。
 
 
