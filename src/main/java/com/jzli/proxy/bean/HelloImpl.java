@@ -11,6 +11,9 @@ package com.jzli.proxy.bean;
  * ========================================================
  */
 public class HelloImpl implements IHello {
+    private final static String ID = "ID";
+    String name;
+
     @Override
     public String hello(String str) {
         return "Hello " + str;
