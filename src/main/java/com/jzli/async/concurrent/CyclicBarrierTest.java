@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @Author ：李金钊
  * @Version ：0.0.1
  * @Description ：CyclicBarrier可以重用的计数器，可以在所有线程完成后，由其中一个线程继续执行一个Runnable。
+ *                CyclicBarrier一般用于一组线程互相等待至某个状态，然后这一组线程再同时执行，可以重用
  * ========================================================
  */
 public class CyclicBarrierTest {

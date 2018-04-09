@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @Author ：李金钊
  * @Version ：0.0.1
  * @Description ：CountDownLatch最主要的功能就是以计数器的形式统一等待线程完成任务，将计数器归零后，再继续
+ *                CountDownLatch一般用于某个线程A等待若干个其他线程执行完任务之后，它才执行
  * ========================================================
  */
 public class CountDownLatchTest {
