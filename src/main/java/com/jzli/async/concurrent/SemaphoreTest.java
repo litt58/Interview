@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @Date ：2018/4/9
  * @Author ：李金钊
  * @Version ：0.0.1
- * @Description ：Semaphore和锁有点类似，它一般用于控制对某组资源的访问权限。
+ * @Description ：Semaphore和锁有点类似，它一般用于控制对某组资源的访问权限。http://www.importnew.com/21889.html
  * ========================================================
  */
 public class SemaphoreTest {
