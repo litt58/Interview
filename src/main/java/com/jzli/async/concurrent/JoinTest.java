@@ -12,7 +12,7 @@ package com.jzli.async.concurrent;
  */
 public class JoinTest {
     public static void main(String[] args) {
-        Thread thread = new Thread(new JoinDemo());
+        Thread thread = new Thread(new JoinTask());
         thread.start();
 
         for (int i = 0; i < 20; i++) {
@@ -29,7 +29,7 @@ public class JoinTest {
     }
 }
 
-class JoinDemo implements Runnable {
+class JoinTask implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {

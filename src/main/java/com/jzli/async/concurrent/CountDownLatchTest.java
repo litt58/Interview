@@ -1,6 +1,7 @@
-package com.jzli.async.concurrent.countDownLatch;
+package com.jzli.async.concurrent;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * =======================================================
@@ -23,6 +24,25 @@ public class CountDownLatchTest {
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName() + "执行完毕!");
     }
+}
 
+class CountDownLatchTask implements Runnable {
 
+    private CountDownLatch countDownLatch;
+
+    public CountDownLatchTask(CountDownLatch countDownLatch) {
+        this.countDownLatch = countDownLatch;
+    }
+
+    @Override
+    public void run() {
+        try {
+            System.out.println(Thread.currentThread().getName() + "开始执行...");
+            TimeUnit.SECONDS.sleep((long) (Math.random() * 10));
+            System.out.println(Thread.currentThread().getName() + "执行完毕!");
+            countDownLatch.countDown();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
