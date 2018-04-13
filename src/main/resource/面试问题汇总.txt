@@ -1,0 +1,60 @@
+抽象类和接口的区别：抽象类是单继承，接口是多实现；抽象类可以实现方法；抽象类除了不能实例化，其他的与普通java类一样；接口里定义的变量只能是公共的静态的常量
+
+Collection集合的类结构：util包下，Set，List，Queue(单向列表)，Dueue(双向列表)
+
+Exception的种类和类结构：java.lang.Throwable ，java.lang.Error ，java.lang.Exception 
+
+HashMap的扩容机制，
+remove是否会降低容量，
+为什么不是线程安全的：hash碰撞时，多个线程同时操作一个列表，会导致数据丢失；扩容时，多个线程同时扩容
+
+ConCurrentHashMap的实现原理，好处
+实现原理:
+好处：
+
+实现AOP
+
+Spring事物传播机制：
+PROPAGATION_REQUIRED
+如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。
+PROPAGATION_SUPPORTS
+支持当前事务，如果当前没有事务，就以非事务方式执行。
+PROPAGATION_MANDATORY
+使用当前的事务，如果当前没有事务，就抛出异常。
+PROPAGATION_REQUIRES_NEW
+新建事务，如果当前存在事务，把当前事务挂起。
+PROPAGATION_NOT_SUPPORTED
+以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。
+PROPAGATION_NEVER
+以非事务方式执行，如果当前存在事务，则抛出异常。
+PROPAGATION_NESTED
+如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。
+
+
+事物隔离级别：读未提交，读已提交，可重复读，串行化
+脏读幻读的场景,如何解决 
+MySQL索引的实现原理，联合索引的生效与否：
+
+MyBatis #和$的区别
+数组和列表的底层实现
+TreeMap的实现和使用场景
+Redis的数据类型，持久化的方式
+分布式锁的争抢导致的问题
+线程死锁的查看方法和解决方法
+sync关键字的实现原理，volateite关键字的实现原理
+CPU CAS指令的实现原理
+Spring DI和IOC的关系和原理
+Spring的优点和缺点
+设计模式的使用场景，单例模式
+Spring Bean装载机制
+java类加载机制
+jvm
+线程池的实现原理，构造方法
+Spring的循环依赖问题
+二叉树
+MQ消息丢失：手动确认
+
+遇到的问题:
+1.分布式锁
+2.spring声明式事务 同一类内方法调用事务失效
+
