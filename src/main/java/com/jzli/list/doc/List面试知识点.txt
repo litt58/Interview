@@ -1,8 +1,12 @@
 1.ArrayList:数组实现的List，数组的特性是可以使用索引的方式来快速定位对象的位置,可以快速的随机取得对象。
 ArrayList插入或删除一个对象时，需要移动数组的元素，频繁的数组扩容，数组复制效率比较低。
+ArrayList基础大小为10，在加入元素时，初始化数组，扩容是以原大小的1.5倍进行扩容。
 
 2.LinkedList:双向链表实现的List，插入或删除一个对象时,因为链表的特性只需要改变前后对象的引用即可，效率高。
 
 3.ConcurrentLinkedQueue是线程安全的List，使用单向链表实现，使用Unsafe的CAS操作保证线程安全。
 
-4.使用迭代器遍历时，不能修改集合本身,list,map,set都是如此。
+4.使用迭代器遍历时，不能修改集合本身,list,map,set都是如此,
+因为迭代器有一个成员变量expectedModCount，去保证在迭代器使用期间集合没有变动，否则就拋异常ConcurrentModificationException(RuntimeException)
+
+5.Collection接口在util包下，有Set，List，Queue(单向列表)，Dueue(双向列表)子接口。

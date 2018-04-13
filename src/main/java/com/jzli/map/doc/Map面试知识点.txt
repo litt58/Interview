@@ -1,5 +1,6 @@
 1.HashMap的实现
-在JDK1.6中，HashMap采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。
+在JDK1.6中，HashMap采用数组+链表实现，初始数组大小为16，负载因子为0.75，当数组中数据达到16*0.75时，数组会以翻倍的形式扩容，
+当使用链表处理冲突，同一hash值的链表都存储在一个链表里。
 但是当位于一个桶中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低,时间复杂度为O(n)。
 并且出现Hash碰撞时新加入的节点会从头结点加入，最早放入链表会存储在链表的最末端。
 
@@ -18,6 +19,7 @@ HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都完成了Map接口。
 效率:单线程情况下，HashMap效率比Hashtable高，因为Hashtable使用了synchronized关键字，每次调用方法都会加锁，降低了效率。多线程情况下，推荐使用ConcurrentHashMap。
 
 4.ConcurrentHashMap实现
+初始化16个Segment，分别处理
 JDK6使用分段锁
 JDK8使用UnSafe类中的CAS操作，这个比较难理解，可以直接跟面试官说不太懂，只是上网看到的。
 CAS,compare and swap的缩写，中文翻译成比较并交换。
