@@ -22,9 +22,13 @@ public class ListTest {
         for (int i = 1; i < 101; i++) {
             arrayList.add(i + "");
         }
+//        arrayList.get(6);
+//        arrayList.remove(7);
+//        arrayList.remove(10 + "");
+        for (int i = 1; i < 101; i++) {
+           arrayList.remove(i+"");
+        }
         arrayList.get(6);
-        arrayList.remove(7);
-        arrayList.remove(10 + "");
 
         LinkedList<String> linkedList = new LinkedList<>();
         for (int i = 1; i < 101; i++) {

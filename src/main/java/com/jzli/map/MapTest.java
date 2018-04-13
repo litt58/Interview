@@ -15,6 +15,13 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class MapTest {
     public static void main(String[] args) {
+        HashMap<Integer, Integer> map1 = new HashMap<>();
+        for (int i = 1; i < 100001; i++) {
+            map1.put(i, i);
+        }
+        map1.clear();
+        System.out.println(map1.size());
+
         HashMap<TestBean, String> map = new HashMap<>();
         for (int i = 1; i < 101; i++) {
             map.put(new TestBean(i + "", i + ""), i + "");
@@ -59,6 +66,10 @@ public class MapTest {
         LinkedHashMap<TestBean, String> linkedHashMap = new LinkedHashMap<>();
         for (int i = 1; i < 101; i++) {
             linkedHashMap.put(new TestBean(i + "", i + ""), i + "");
+        }
+        Set<Map.Entry<TestBean, String>> entries = linkedHashMap.entrySet();
+        for (Map.Entry<TestBean, String> entity : entries) {
+            System.out.println(entity.getKey() + " = " + entity.getValue());
         }
 
 
