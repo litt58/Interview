@@ -28,6 +28,8 @@ public class DynamicProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if ("hello".equalsIgnoreCase(method.getName())) {
             System.out.println("动态代理:");
+        } else {
+            System.out.println(method.getName());
         }
         return method.invoke(hello, args);
     }
@@ -38,5 +40,6 @@ public class DynamicProxy implements InvocationHandler {
                 new Class<?>[]{IHello.class},
                 dynamicProxy);
         System.out.println(hello.hello("李金钊"));
+        hello.test();
     }
 }

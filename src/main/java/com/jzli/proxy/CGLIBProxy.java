@@ -1,8 +1,6 @@
 package com.jzli.proxy;
 
-import com.jzli.proxy.bean.Hello;
 import com.jzli.proxy.bean.HelloImpl;
-import com.jzli.proxy.bean.IHello;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -23,9 +21,7 @@ public class CGLIBProxy implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        if ("hello".equalsIgnoreCase(method.getName())) {
-            System.out.println("CGLib动态代理:");
-        }
+        System.out.println("CGLib动态代理:");
         return methodProxy.invokeSuper(o, objects);
     }
 
@@ -34,12 +30,13 @@ public class CGLIBProxy implements MethodInterceptor {
         enhancer.setSuperclass(HelloImpl.class);
         enhancer.setCallback(new CGLIBProxy());
 
-        IHello hello = (IHello) enhancer.create();
+        HelloImpl hello = (HelloImpl) enhancer.create();
         System.out.println(hello.hello("李金钊"));
+        hello.test();
 
-        enhancer.setSuperclass(Hello.class);
-
-        Hello h = (Hello) enhancer.create();
-        System.out.println(h.hello("李金钊"));
+//        enhancer.setSuperclass(Hello.class);
+//
+//        Hello h = (Hello) enhancer.create();
+//        System.out.println(h.hello("李金钊"));
     }
 }

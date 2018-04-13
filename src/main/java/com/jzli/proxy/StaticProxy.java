@@ -22,6 +22,11 @@ public class StaticProxy implements IHello {
         return hello.hello(str);
     }
 
+    @Override
+    public void test() {
+
+    }
+
     public static void main(String[] args) {
         StaticProxy staticProxy = new StaticProxy();
         System.out.println(staticProxy.hello("李金钊"));

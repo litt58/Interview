@@ -18,4 +18,10 @@ public class HelloImpl implements IHello {
     public String hello(String str) {
         return "Hello " + str;
     }
+
+    public void test() {
+        System.out.println("test李金钊");
+        //没有起作用
+        hello("test");
+    }
 }

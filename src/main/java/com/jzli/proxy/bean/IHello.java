@@ -12,4 +12,6 @@ package com.jzli.proxy.bean;
  */
 public interface IHello {
     String hello(String str);
+
+    void test();
 }
