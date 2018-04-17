@@ -14,10 +14,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * ========================================================
  */
 public class ReentrantLockTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        //公平锁，按照线程获取锁的顺序，来分配锁
         ReentrantLock lock = new ReentrantLock(true);
         for (int i = 1; i < 11; i++) {
             new Thread(new LockTask(lock), i + "").start();
+            TimeUnit.MILLISECONDS.sleep(10);
         }
     }
 }
@@ -39,7 +41,7 @@ class LockTask implements Runnable {
             e.printStackTrace();
         } finally {
             lock.unlock();
-            System.out.println(Thread.currentThread().getName() + "释放锁");
+            System.out.println(Thread.currentThread().getName() + "释放锁," + lock.getQueueLength() + "," + lock.getHoldCount());
         }
     }
 }
