@@ -10,6 +10,8 @@ JDK1.8中，HashMap采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换
 具体可参考:https://blog.csdn.net/wushiwude/article/details/75331926
 红黑树相关可参考:https://blog.csdn.net/u011240877/article/details/53329023
 
+HashMap线程不安全的原因是：Hash碰撞和扩容
+
 2.HashSet的实现
 使用HashMap的key部分操作实现HashSet
 HashSet确保元素唯一性的两个方法，hashCode()和equals()方法。

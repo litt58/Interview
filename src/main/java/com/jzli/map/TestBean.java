@@ -53,6 +53,18 @@ public class TestBean {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TestBean testBean = (TestBean) o;
+
+        if (!id.equals(testBean.id)) return false;
+        return name.equals(testBean.name);
+
+    }
+
+    @Override
     public String toString() {
         return "TestBean{" +
                 "id='" + id + '\'' +
