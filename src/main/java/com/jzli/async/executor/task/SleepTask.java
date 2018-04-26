@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author lijinzhao
  */
-public class SleepTask implements Runnable {
+public class SleepTask implements Runnable, Comparable {
     private Logger _log = LoggerFactory.getLogger(this.getClass());
     private int i;
 
@@ -30,4 +30,12 @@ public class SleepTask implements Runnable {
         }
     }
 
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof SleepTask) {
+            SleepTask s = (SleepTask) o;
+            return s.i - this.i;
+        }
+        return 0;
+    }
 }
