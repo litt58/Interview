@@ -63,12 +63,16 @@ public class MapTest {
             concurrentHashMap.put(new TestBean(i + "", i + ""), i + "");
         }
 
-        LinkedHashMap<TestBean, String> linkedHashMap = new LinkedHashMap<>();
+        //使用LinkedHashMap中的accessOrder可以维护顺序
+        //（1）false，所有的Entry按照插入的顺序排列
+        //（2）true，所有的Entry按照访问的顺序排列
+        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>(16, 0.75f, true);
         for (int i = 1; i < 101; i++) {
-            linkedHashMap.put(new TestBean(i + "", i + ""), i + "");
+            linkedHashMap.put(i, i + "");
         }
-        Set<Map.Entry<TestBean, String>> entries = linkedHashMap.entrySet();
-        for (Map.Entry<TestBean, String> entity : entries) {
+        linkedHashMap.get(10);
+        Set<Map.Entry<Integer, String>> entries = linkedHashMap.entrySet();
+        for (Map.Entry<Integer, String> entity : entries) {
             System.out.println(entity.getKey() + " = " + entity.getValue());
         }
 
