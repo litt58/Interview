@@ -76,6 +76,9 @@ public class MapTest {
             System.out.println(entity.getKey() + " = " + entity.getValue());
         }
 
-
+        WeakHashMap<Integer, String> weakHashMap = new WeakHashMap();
+        for (int i = 1; i < 101; i++) {
+            weakHashMap.put(i, i + "");
+        }
     }
 }
