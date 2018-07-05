@@ -45,6 +45,7 @@ public class TestWithThreadStartAndRun implements Runnable {
         TestWithThreadStartAndRun testWithThreadStartAndRun = new TestWithThreadStartAndRun();
         Thread thread = new Thread(testWithThreadStartAndRun);
 //        thread.run();
+//        thread.start();Thread的start()调用多次，则会报IllegalThreadStateException
         thread.start();
         testWithThreadStartAndRun.m2();
         testWithThreadStartAndRun.logger.info("main:" + testWithThreadStartAndRun.b);
