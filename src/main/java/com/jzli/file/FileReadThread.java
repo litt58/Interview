@@ -3,7 +3,6 @@ package com.jzli.file;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -29,7 +28,6 @@ public class FileReadThread extends Thread {
     public void run() {
         File file = new File(filePath);
         RandomAccessFile randomAccessFile = null;
-        ByteBuffer buf = ByteBuffer.allocateDirect(Short.MAX_VALUE);
         try {
             randomAccessFile = new RandomAccessFile(file, "r");
         } catch (FileNotFoundException e) {
