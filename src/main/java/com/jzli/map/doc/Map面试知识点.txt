@@ -34,3 +34,5 @@ Collections.synchronizedMap(map):把普通的Map作为参数传入，返回一个使用synchroniz
 
 6.LinkedHashMap
 LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的（先进先出，类似栈）。
+
+7.SortedMap
