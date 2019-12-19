@@ -36,3 +36,4 @@ Collections.synchronizedMap(map):把普通的Map作为参数传入，返回一个使用synchroniz
 LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的（先进先出，类似栈）。
 
 7.SortedMap
+TreeMap是SortedMap接口的基于红黑树的实现。此类保证了映射按照升序顺序排列关键字， 根据使用的构造方法不同，可能会按照键的类的自然顺序进行排序（参见 Comparable）， 或者按照创建时所提供的比较器进行排序。
