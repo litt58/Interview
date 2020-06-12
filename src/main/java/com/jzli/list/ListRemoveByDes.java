@@ -27,10 +27,11 @@ public class ListRemoveByDes {
         b.add(5);
         b.add(6);
         b.add(3);
-        for (int i = a.size() - 1; i >= 0; i--) {
-            a.get(i)
-            for (Integer n : b) {
-                if (a.get(i).equals(n)) {
+
+        for (Integer n : b) {
+            for (int i = a.size() - 1; i >= 0; i--) {
+                Integer integer = a.get(i);
+                if (integer.equals(n)) {
                     a.remove(i);
                 }
             }

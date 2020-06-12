@@ -27,9 +27,11 @@ public class ListRemoveByAes {
         b.add(5);
         b.add(6);
         b.add(3);
-        for (int i = 0; i < a.size(); i++) {
-            for (Integer n : b) {
-                if (a.get(i).equals(n)) {
+
+        for (Integer n : b) {
+            for (int i = 0; i < a.size(); i++) {
+                Integer integer = a.get(i);
+                if (integer.equals(n)) {
                     a.remove(i);
                     i--;
                 }
