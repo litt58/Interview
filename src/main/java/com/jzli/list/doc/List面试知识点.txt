@@ -7,7 +7,10 @@ ArrayList删除元素时，不会减小数组的大小。
 
 3.ConcurrentLinkedQueue是线程安全的List，使用单向链表实现，使用Unsafe的CAS操作保证线程安全。
 
-4.使用迭代器遍历时，不能修改集合本身,list,map,set都是如此,
+4.使用迭代器foreach遍历时，不能修改集合本身,list,map,set都是如此,
 因为迭代器有一个成员变量expectedModCount，去保证在迭代器使用期间集合没有变动，否则就拋异常ConcurrentModificationException(RuntimeException)
+1).可以使用使用Iterator的remove()方法去删除。
+2).可以使用for循环正序遍历去删除，注意修改下标。
+3).可以使用for循环倒序遍历去删除
 
 5.Collection接口在util包下，有Set，List，Queue(单向列表)，Dueue(双向列表)子接口。
