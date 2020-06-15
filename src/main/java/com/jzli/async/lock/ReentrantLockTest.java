@@ -10,12 +10,14 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Date ：2018/4/17
  * @Author ：李金钊
  * @Version ：0.0.1
- * @Description ：
+ * @Description ：重入锁机制
  * ========================================================
  */
 public class ReentrantLockTest {
     public static void main(String[] args) throws InterruptedException {
         //公平锁，按照线程获取锁的顺序，来分配锁
+//        ReentrantLock lock = new ReentrantLock(true);
+        //非公平锁
         ReentrantLock lock = new ReentrantLock();
         for (int i = 1; i < 11; i++) {
             new Thread(new LockTask(lock), i + "").start();
