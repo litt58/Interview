@@ -7,7 +7,7 @@ package com.jzli.singleton;
  * @Date ：2020/6/15 16:20
  * @Author ：李金钊
  * @Version ：0.0.1
- * @Description ：枚举类实现单例类
+ * @Description ：枚举类实现单例类，懒汉模式最优解
  * ========================================================
  */
 public enum  EnumSingleton {

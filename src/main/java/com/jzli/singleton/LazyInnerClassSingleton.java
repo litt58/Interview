@@ -9,10 +9,13 @@ import java.io.Serializable;
  * @Date ：2020/6/15
  * @Author ：李金钊
  * @Version ：0.0.1
- * @Description ：静态内部类实现单例类，懒汉模式最优解
+ * @Description ：静态内部类实现单例类
  * ========================================================
  */
 public class LazyInnerClassSingleton implements Serializable {
+
+    private static volatile boolean flag;
+
     /**
      * 静态内部类
      */
@@ -22,8 +25,12 @@ public class LazyInnerClassSingleton implements Serializable {
 
     private LazyInnerClassSingleton() {
         // 防止反射创建多个对象
-        if (LazyInnerClassSingletonHolder.LAZY != null) {
-            throw new RuntimeException("不允许创建多个实例");
+        synchronized (LazyInnerClassSingleton.class) {
+            if (!flag) {
+                flag = true;
+            } else {
+                throw new RuntimeException("不允许创建多个实例");
+            }
         }
     }
 
