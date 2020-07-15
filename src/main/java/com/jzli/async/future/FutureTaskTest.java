@@ -23,10 +23,10 @@ public class FutureTaskTest {
         };
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-       Future<String> submit1 = executorService.submit(callable);
-        Future<?> submit2 = executorService.submit(new FutureTask<String>(callable));
+        Future<String> submit1 = executorService.submit(callable);
+        Future<?> submit2 = executorService.submit(new FutureTask<>(callable));
         executorService.shutdown();
-        String s1=submit1.get();
+        String s1 = submit1.get();
         System.out.println(s1);
         String s2 = (String) submit2.get(10, TimeUnit.SECONDS);
         System.out.println(s2);

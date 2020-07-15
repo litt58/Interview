@@ -32,7 +32,7 @@ public class ThreadPoolExecutorTestWithSynchronousQueue {
     }
 
     public void test() throws Exception {
-        ThreadPoolExecutor threadPool = null;
+        ThreadPoolExecutor threadPool;
 
         // 使用SynchronousQueue队列，为不断创建新的线程来完成任务，并会在自动销毁线程(???实验中并未自动销毁)
         threadPool = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 1800,
@@ -49,7 +49,7 @@ public class ThreadPoolExecutorTestWithSynchronousQueue {
             list.add(threadPool.submit(new SleepTask(i), i));
         }
 
-        int count = 0;
+        int count;
         do {
             count = threadPool.getActiveCount();
             TimeUnit.SECONDS.sleep(1);
@@ -72,7 +72,6 @@ public class ThreadPoolExecutorTestWithSynchronousQueue {
             list.add(threadPool.submit(new SleepTask(i), i));
         }
 
-        count = 0;
         do {
             count = threadPool.getActiveCount();
             TimeUnit.SECONDS.sleep(1);

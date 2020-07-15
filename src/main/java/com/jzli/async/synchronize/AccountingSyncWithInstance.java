@@ -16,14 +16,14 @@ public class AccountingSyncWithInstance implements Runnable {
     /**
      * synchronized方法实现synchronized实例对象锁
      */
-//    public synchronized void increase() {
-//        count++;
-//    }
-    public void increase() {
-        synchronized (this) {
-            count++;
-        }
+    public synchronized void increase() {
+        count++;
     }
+//    public void increase() {
+//        synchronized (this) {
+//            count++;
+//        }
+//    }
 
     @Override
     public void run() {

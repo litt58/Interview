@@ -37,7 +37,7 @@ public class ThreadPoolExecutorTestWithLinkedBlockingQueue {
         ThreadPoolExecutor threadPool = null;
         // 使用有界队列时，当任务数大于核心线程数加上队列大小时，线程池才会创建新的线程执行任务，但此时拒绝任务的处理程序也会拒绝掉一部分的任务
         threadPool = new ThreadPoolExecutor(coreSize, maxSize, 30L,
-                TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(),
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>(),
                 new ThreadPoolExecutor.DiscardOldestPolicy());
 
         List<Future<Integer>> list = new LinkedList<Future<Integer>>();
@@ -45,7 +45,7 @@ public class ThreadPoolExecutorTestWithLinkedBlockingQueue {
             list.add(threadPool.submit(new SleepTask(i), i));
         }
 
-        int count = 0;
+        int count;
         do {
             count = threadPool.getActiveCount();
             _log.info(threadPool.getPoolSize() + "");
@@ -70,7 +70,6 @@ public class ThreadPoolExecutorTestWithLinkedBlockingQueue {
             list.add(threadPool.submit(new SleepTask(i), i));
         }
 
-        count = 0;
         do {
             count = threadPool.getActiveCount();
             TimeUnit.SECONDS.sleep(1);

@@ -13,21 +13,21 @@ package com.jzli.async.synchronize;
 public class AccountingSyncWithClass implements Runnable {
     public static int count;
 
-//    /**
-//     * 静态方法实现synchronized对象类锁
-//     */
-//    public static synchronized void increase() {
-//        count++;
-//    }
+    /**
+     * 静态方法实现synchronized对象类锁
+     */
+    public static synchronized void increase() {
+        count++;
+    }
 
     /**
      * 同步代码块方式实现synchronized对象类锁
      */
-    public void increase() {
-        synchronized (AccountingSyncWithClass.class) {
-            count++;
-        }
-    }
+//    public void increase() {
+//        synchronized (AccountingSyncWithClass.class) {
+//            count++;
+//        }
+//    }
 
     @Override
     public void run() {
