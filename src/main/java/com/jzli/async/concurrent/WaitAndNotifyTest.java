@@ -38,6 +38,7 @@ public class WaitAndNotifyTest {
             super(name);
         }
 
+        @Override
         public void run() {
             synchronized (shareObj) {
                 while ("true".equals(shareObj[0])) {
@@ -63,6 +64,7 @@ public class WaitAndNotifyTest {
             super(name);
         }
 
+        @Override
         public void run() {
             try {
                 // 给等待线程等待时间
