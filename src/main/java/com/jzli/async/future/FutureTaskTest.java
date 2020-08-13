@@ -24,6 +24,7 @@ public class FutureTaskTest {
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         Future<String> submit1 = executorService.submit(callable);
+        //这种方式没有返回值
         Future<?> submit2 = executorService.submit(new FutureTask<>(callable));
         executorService.shutdown();
         String s1 = submit1.get();
